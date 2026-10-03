@@ -3819,3 +3819,160 @@ function findCustomerOrder(
     );
 
 }
+    /* =====================================================
+   DELETE ONE ORDER
+===================================================== */
+
+function deleteOneOrder(orderId, customerId){
+
+    if(!confirm("Is order ko delete karna hai?")){
+        return;
+    }
+
+    const customer = findCustomer(customerId);
+
+    if(!customer){
+        return;
+    }
+
+    customer.orders = (customer.orders || []).filter(function(order){
+        return String(order.id) !== String(orderId);
+    });
+
+    customer.updatedAt = Date.now();
+
+    if(customer.orders.length === 0){
+        customers = customers.filter(function(c){
+            return String(c.id) !== String(customerId);
+        });
+    }
+
+    saveCustomers();
+    renderCustomers();
+
+}
+
+
+/* =====================================================
+   DELETE CUSTOMER
+===================================================== */
+
+function deleteCustomer(customerId){
+
+    if(!confirm("Customer aur uske saare orders delete karne hain?")){
+        return;
+    }
+
+    customers = customers.filter(function(customer){
+        return String(customer.id) !== String(customerId);
+    });
+
+    saveCustomers();
+    renderCustomers();
+
+}
+
+
+/* =====================================================
+   DELETE ALL CUSTOMERS
+===================================================== */
+
+function deleteAllCustomers(){
+
+    if(!confirm("Saare customer records delete karne hain?")){
+        return;
+    }
+
+    if(!confirm("Pakka? Ye wapas nahi aayega.")){
+        return;
+    }
+
+    customers = [];
+
+    saveCustomers();
+    renderCustomers();
+
+}
+
+
+/* =====================================================
+   SEND WHATSAPP / EMAIL FROM ADMIN
+===================================================== */
+
+function sendOrderWhatsApp(orderId, customerId){
+
+    const order = findCustomerOrder(customerId, orderId);
+
+    if(!order){
+        alert("Order nahi mila.");
+        return;
+    }
+
+    const phone = normalizePhone(order.customerPhone);
+
+    const url =
+        "https://wa.me/91" + phone +
+        "?text=" +
+        encodeURIComponent(createOrderMessage(order));
+
+    window.open(url, "_blank");
+
+}
+
+
+function sendOrderEmail(orderId, customerId){
+
+    const order = findCustomerOrder(customerId, orderId);
+
+    if(!order){
+        alert("Order nahi mila.");
+        return;
+    }
+
+    const url =
+        "mailto:" + ADMIN_EMAIL +
+        "?subject=" +
+        encodeURIComponent("Paigam Poultry Traders - Order Details") +
+        "&body=" +
+        encodeURIComponent(createEmailBody(order));
+
+    window.location.href = url;
+
+}
+
+
+/* =====================================================
+   SAFE TEXT HELPERS
+===================================================== */
+
+function safe(value){
+
+    return String(value === undefined || value === null ? "" : value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+
+}
+
+
+function safeAttribute(value){
+
+    return String(value === undefined || value === null ? "" : value)
+        .replace(/[^a-zA-Z0-9._-]/g, "");
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+renderSettings();
+calculate();
+
+</script>
+
+</body>
+</html>
