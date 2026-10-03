@@ -1,0 +1,3821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paigam Poultry Traders</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#fff8ed;
+    color:#222;
+}
+
+.navbar{
+    background:#8b1e16;
+    color:white;
+    padding:14px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-icon{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#ffca28;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+}
+
+.logo h2{
+    font-size:18px;
+}
+
+.logo small{
+    color:#ffe082;
+}
+
+.admin-btn{
+    background:#222;
+    color:white;
+    border:0;
+    padding:10px 15px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.hero{
+    min-height:480px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+
+    background:
+    linear-gradient(#0009,#0009),
+    url("https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=1600&q=85");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:48px;
+}
+
+.hero span{
+    color:#ffca28;
+}
+
+.hero p{
+    margin:15px;
+    font-size:18px;
+}
+
+.btn{
+    display:inline-block;
+    border:0;
+    padding:13px 20px;
+    border-radius:7px;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+    margin:5px;
+}
+
+.green{
+    background:#20c76a;
+    color:white;
+}
+
+.yellow{
+    background:#ffca28;
+    color:#5d170f;
+}
+
+.red{
+    background:#d32f2f;
+    color:white;
+}
+
+.section{
+    padding:50px 7%;
+}
+
+.title{
+    text-align:center;
+    color:#8b1e16;
+    margin-bottom:10px;
+}
+
+.sub{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+}
+
+.rate-box{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    box-shadow:0 5px 20px #0002;
+    text-align:center;
+}
+
+.rate{
+    font-size:40px;
+    color:#8b1e16;
+    font-weight:bold;
+}
+
+.sizes{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    margin-top:20px;
+}
+
+.size{
+    background:#fff4cf;
+    border:2px solid #ffca28;
+    padding:12px 18px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.notice{
+    max-width:700px;
+    margin:20px auto;
+    padding:15px;
+    border-radius:8px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.open{
+    background:#d9ffe8;
+    color:#08752f;
+}
+
+.closed{
+    background:#ffe0e0;
+    color:#a40000;
+}
+
+.product{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 18px #0002;
+}
+
+.product img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.product-content{
+    padding:20px;
+    text-align:center;
+}
+
+.product-content h3{
+    color:#8b1e16;
+}
+
+.order-section{
+    background:#8b1e16;
+    padding:55px 7%;
+}
+
+.order-form{
+    max-width:750px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin:12px 0 5px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    font-size:15px;
+}
+
+input[type="checkbox"]{
+    width:auto;
+}
+
+textarea{
+    height:80px;
+    resize:vertical;
+}
+
+.total-box{
+    margin-top:15px;
+    padding:18px;
+    background:#fff5d7;
+    border-radius:8px;
+}
+
+.total-box div{
+    margin:9px 0;
+}
+
+.total-box strong{
+    color:#8b1e16;
+    font-size:20px;
+}
+
+.extra{
+    color:#08752f;
+    font-weight:bold;
+}
+
+.due{
+    color:#d32f2f;
+    font-weight:bold;
+}
+
+.paid{
+    color:#08752f;
+    font-weight:bold;
+}
+
+.contact{
+    text-align:center;
+    padding:45px;
+    background:white;
+}
+
+.contact a{
+    color:#8b1e16;
+}
+
+footer{
+    background:#4b100b;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+footer h3{
+    color:#ffca28;
+}
+
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#000b;
+    z-index:1000;
+    overflow:auto;
+    padding:15px;
+}
+
+.panel{
+    max-width:1100px;
+    margin:20px auto;
+    background:white;
+    border-radius:15px;
+    padding:25px;
+}
+
+.panel-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.panel-head h2{
+    color:#8b1e16;
+}
+
+.close{
+    background:#d32f2f;
+    color:white;
+    border:0;
+    padding:10px 15px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.login{
+    max-width:400px;
+    margin:30px auto;
+    background:#fff8ed;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 20px #0002;
+}
+
+.login h3{
+    color:#8b1e16;
+    margin-bottom:10px;
+}
+
+.login input{
+    margin-bottom:12px;
+}
+
+.admin-profile{
+    background:linear-gradient(135deg,#fff8ed,#fff);
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 5px 20px #0002;
+    margin-bottom:20px;
+    border:1px solid #ffe0a3;
+}
+
+.admin-profile-photo{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #ffca28;
+    padding:3px;
+    background:white;
+    box-shadow:0 5px 15px #0003;
+}
+
+.admin-profile h2{
+    color:#8b1e16;
+    margin-top:15px;
+}
+
+.admin-role{
+    color:#666;
+    margin:5px 0 18px;
+}
+
+.admin-details{
+    max-width:600px;
+    margin:auto;
+    text-align:left;
+}
+
+.admin-detail{
+    background:white;
+    padding:13px 15px;
+    border-radius:8px;
+    margin:8px 0;
+    border-left:4px solid #ffca28;
+}
+
+.admin-detail b{
+    color:#8b1e16;
+}
+
+.admin-actions{
+    margin-top:18px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:#fff8ed;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:#8b1e16;
+    margin-bottom:15px;
+}
+
+.save{
+    width:100%;
+    background:#20a95b;
+    color:white;
+    border:0;
+    padding:14px;
+    border-radius:7px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.logout{
+    background:#555;
+    color:white;
+    border:0;
+    padding:10px 15px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.stat{
+    background:white;
+    padding:15px;
+    text-align:center;
+    border-radius:8px;
+}
+
+.stat b{
+    display:block;
+    color:#8b1e16;
+    font-size:21px;
+    margin-top:7px;
+}
+
+.customer-card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin:15px 0;
+    border-left:5px solid #8b1e16;
+}
+
+.customer-title{
+    color:#8b1e16;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.customer-summary{
+    background:#fff8dc;
+    padding:12px;
+    border-radius:8px;
+    margin-top:12px;
+}
+
+.customer-summary div{
+    margin:5px 0;
+}
+
+.order-history{
+    margin-top:15px;
+}
+
+.history-title{
+    color:#8b1e16;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.history-item{
+    background:#f8f8f8;
+    border-radius:8px;
+    padding:14px;
+    margin:10px 0;
+    border-left:3px solid #ffca28;
+}
+
+.money-box{
+    background:#fff8dc;
+    border-radius:8px;
+    padding:12px;
+    margin-top:10px;
+}
+
+.money-box div{
+    margin:5px 0;
+}
+
+.record-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+    margin-top:12px;
+}
+
+.record-buttons button{
+    border:0;
+    padding:9px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.time-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.success-box{
+    display:none;
+    background:#d9ffe8;
+    color:#08752f;
+    padding:18px;
+    border-radius:8px;
+    margin-bottom:15px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.search-box{
+    margin-bottom:15px;
+}
+
+.search-box input{
+    border:2px solid #ffca28;
+}
+
+@media(max-width:700px){
+
+    .navbar{
+        padding:12px 4%;
+    }
+
+    .logo h2{
+        font-size:14px;
+    }
+
+    .logo small{
+        font-size:9px;
+    }
+
+    .logo-icon{
+        width:40px;
+        height:40px;
+        font-size:22px;
+    }
+
+    .admin-btn{
+        padding:8px 10px;
+        font-size:13px;
+    }
+
+    .hero{
+        min-height:420px;
+        padding:20px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section{
+        padding:40px 5%;
+    }
+
+    .order-section{
+        padding:45px 5%;
+    }
+
+    .order-form{
+        padding:18px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .panel{
+        padding:15px;
+        margin:5px auto;
+    }
+
+    .admin-profile-photo{
+        width:115px;
+        height:115px;
+    }
+
+    .admin-actions{
+        display:block;
+    }
+
+    .admin-actions .btn{
+        width:100%;
+        margin:5px 0;
+    }
+
+    .time-row{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:450px){
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">🐔</div>
+
+        <div>
+            <h2>PAIGAM POULTRY TRADERS</h2>
+            <small>FRESH • QUALITY • TRUSTED</small>
+        </div>
+
+    </div>
+
+    <button class="admin-btn" onclick="openAdmin()">
+        🔐 Admin
+    </button>
+
+</nav>
+
+
+<section class="hero">
+
+    <div>
+
+        <h1>
+            PAIGAM <span>POULTRY TRADERS</span>
+        </h1>
+
+        <p>
+            Fresh Chicken • Quality • Trusted Service
+        </p>
+
+        <a
+            class="btn green"
+            href="https://wa.me/918127272723"
+            target="_blank">
+            WhatsApp
+        </a>
+
+        <a
+            class="btn yellow"
+            href="#order">
+            Order Chicken
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <h2 class="title">
+        Today's Chicken Rate
+    </h2>
+
+    <p class="sub">
+        Current rate and available chicken size
+    </p>
+
+    <div id="businessStatus" class="notice open">
+        Booking information
+    </div>
+
+    <div class="rate-box">
+
+        <div class="rate">
+            ₹<span id="currentRate">0</span>
+            <small>/ KG</small>
+        </div>
+
+        <div class="sizes" id="sizeDisplay"></div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <h2 class="title">
+        Our Product
+    </h2>
+
+    <p class="sub">
+        Fresh Chicken
+    </p>
+
+    <div class="product">
+
+        <img
+            src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=800&q=85"
+            alt="Fresh Chicken">
+
+        <div class="product-content">
+
+            <h3>🐔 Fresh Chicken</h3>
+
+            <p style="margin-top:10px;">
+                Fresh chicken for home, shops and bulk orders.
+            </p>
+
+            <button
+                class="btn green"
+                onclick="goOrder()">
+                Order Now
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="order-section" id="order">
+
+    <h2 style="text-align:center;color:white;margin-bottom:10px;">
+        Chicken Order
+    </h2>
+
+    <p
+        id="bookingTimeText"
+        style="text-align:center;color:white;margin-bottom:20px;">
+        Booking Time
+    </p>
+
+    <div id="orderNotice" class="notice open"></div>
+
+    <div id="successBox" class="success-box">
+        Order saved successfully.
+    </div>
+
+    <form class="order-form" id="orderForm">
+
+        <label>Customer Name</label>
+
+        <input
+            id="customerName"
+            required
+            autocomplete="name">
+
+        <label>Mobile Number</label>
+
+        <input
+            id="customerPhone"
+            type="tel"
+            maxlength="10"
+            inputmode="numeric"
+            required>
+
+        <label>Delivery Address</label>
+
+        <textarea
+            id="address"
+            required></textarea>
+
+        <label>Chicken Size</label>
+
+        <select id="size" required></select>
+
+        <label>Quantity KG</label>
+
+        <input
+            id="quantity"
+            type="number"
+            min="0.01"
+            step="0.01"
+            required>
+
+        <label>Payment Method</label>
+
+        <select id="payment" required>
+
+            <option value="">
+                Select Payment Method
+            </option>
+
+            <option value="Cash">
+                Cash
+            </option>
+
+            <option value="Online">
+                Online
+            </option>
+
+            <option value="Credit / Due">
+                Credit / Due
+            </option>
+
+        </select>
+
+        <label>
+            Paid Amount
+        </label>
+
+        <input
+            id="jama"
+            type="number"
+            min="0"
+            step="1"
+            value="0">
+
+        <label>Note</label>
+
+        <textarea id="notes"></textarea>
+
+
+        <div class="total-box">
+
+            <div>
+                Rate:
+                ₹<span id="showRate">0</span>/KG
+            </div>
+
+            <div>
+                Quantity:
+                <span id="showQuantity">0</span> KG
+            </div>
+
+            <div>
+                <b>Total Amount:</b>
+                ₹<span id="total">0</span>
+            </div>
+
+            <div class="paid">
+                <b>Paid Amount:</b>
+                ₹<span id="showJama">0</span>
+            </div>
+
+            <div class="extra">
+                <b>Extra Amount:</b>
+                ₹<span id="showExtra">0</span>
+            </div>
+
+            <div class="due">
+                <b>Remaining Due:</b>
+                ₹<span id="showRemainingDue">0</span>
+            </div>
+
+        </div>
+
+
+        <button
+            class="btn green"
+            style="width:100%;margin:15px 0 0;"
+            id="orderButton"
+            type="submit">
+
+            Send Order
+
+        </button>
+
+    </form>
+
+</section>
+
+
+<section class="contact">
+
+    <h2>
+        Contact Paigam Poultry Traders
+    </h2>
+
+    <p style="margin-top:15px;">
+        WhatsApp:
+        <strong>+91 81272 72723</strong>
+    </p>
+
+    <p style="margin-top:10px;">
+        Email:
+        <a href="mailto:ahmadazmi2723@gmail.com">
+            <strong>ahmadazmi2723@gmail.com</strong>
+        </a>
+    </p>
+
+    <p style="margin-top:10px;">
+        Address:
+        <strong>
+            Bisham Mirzapur, Azamgarh - 276205
+        </strong>
+    </p>
+
+</section>
+
+
+<footer>
+
+    <h3>
+        🐔 PAIGAM POULTRY TRADERS
+    </h3>
+
+    <p>
+        Fresh • Quality • Trusted
+    </p>
+
+    <p style="margin-top:8px;">
+        Bisham Mirzapur, Azamgarh - 276205
+    </p>
+
+</footer>
+
+
+<div class="overlay" id="adminOverlay">
+
+    <div class="panel">
+
+        <div class="panel-head">
+
+            <h2>
+                Admin Panel
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeAdmin()">
+                X
+            </button>
+
+        </div>
+
+
+        <div id="loginBox">
+
+            <div class="login">
+
+                <div style="text-align:center;margin-bottom:20px;">
+
+                    <div
+                        style="
+                        width:70px;
+                        height:70px;
+                        margin:auto;
+                        border-radius:50%;
+                        background:#ffca28;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        font-size:35px;">
+                        🔐
+                    </div>
+
+                    <h3 style="margin-top:12px;">
+                        AHMAD AZMI
+                    </h3>
+
+                    <p>
+                        Paigam Poultry Traders Admin
+                    </p>
+
+                </div>
+
+                <label>
+                    Admin Email
+                </label>
+
+                <input
+                    id="adminEmail"
+                    type="email"
+                    value="ahmadazmi2723@gmail.com">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    id="adminPassword"
+                    type="password"
+                    placeholder="Enter Admin Password">
+
+                <button
+                    class="btn green"
+                    style="width:100%;margin:10px 0;"
+                    onclick="loginAdmin()">
+                    🔐 Login
+                </button>
+
+                <p
+                    id="loginMessage"
+                    style="text-align:center;color:#d32f2f;">
+                </p>
+
+                <p
+                    style="margin-top:15px;text-align:center;color:#777;font-size:13px;">
+                    Local Admin Login
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="dashboard" style="display:none;">
+
+            <div
+                style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin-bottom:20px;">
+
+                <div>
+
+                    <b style="color:#8b1e16;">
+                        AHMAD AZMI
+                    </b>
+
+                    <br>
+
+                    <small>
+                        Administrator
+                    </small>
+
+                </div>
+
+                <button
+                    class="logout"
+                    onclick="logoutAdmin()">
+                    Logout
+                </button>
+
+            </div>
+
+
+            <div class="admin-profile">
+
+                <img
+                    id="adminPhoto"
+                    class="admin-profile-photo"
+                    src="admin.jpg"
+                    alt="Ahmad Azmi">
+
+                <h2>
+                    AHMAD AZMI
+                </h2>
+
+                <p class="admin-role">
+                    Administrator • Paigam Poultry Traders
+                </p>
+
+                <div class="admin-details">
+
+                    <div class="admin-detail">
+                        👤 <b>Name:</b>
+                        Ahmad Azmi
+                    </div>
+
+                    <div class="admin-detail">
+                        🏪 <b>Business:</b>
+                        Paigam Poultry Traders
+                    </div>
+
+                    <div class="admin-detail">
+                        👨‍💼 <b>Role:</b>
+                        Administrator
+                    </div>
+
+                    <div class="admin-detail">
+                        📞 <b>Mobile:</b>
+                        +91 81272 72723
+                    </div>
+
+                    <div class="admin-detail">
+                        📧 <b>Email:</b>
+                        ahmadazmi2723@gmail.com
+                    </div>
+
+                    <div class="admin-detail">
+                        📍 <b>Address:</b>
+                        Bisham Mirzapur, Azamgarh - 276205
+                    </div>
+
+                </div>
+
+                <div class="admin-actions">
+
+                    <a
+                        class="btn green"
+                        href="tel:+918127272723">
+                        📞 Call Admin
+                    </a>
+
+                    <a
+                        class="btn green"
+                        href="https://wa.me/918127272723"
+                        target="_blank">
+                        💬 WhatsApp
+                    </a>
+
+                    <a
+                        class="btn yellow"
+                        href="mailto:ahmadazmi2723@gmail.com">
+                        📧 Email
+                    </a>
+
+                </div>
+
+                <hr style="margin:25px 0;border:0;border-top:1px solid #eee;">
+
+                <p style="color:#666;margin-bottom:8px;">
+                    Change Admin Photo
+                </p>
+
+                <input
+                    type="file"
+                    id="photoFile"
+                    accept="image/*">
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Business Settings
+                </h3>
+
+                <label>
+                    Chicken Rate Per KG
+                </label>
+
+                <input
+                    id="adminRate"
+                    type="number"
+                    min="0">
+
+                <label>
+                    Minimum Chicken Size (Gram)
+                </label>
+
+                <input
+                    id="minSize"
+                    type="number"
+                    min="0">
+
+                <label>
+                    Maximum Chicken Size (Gram)
+                </label>
+
+                <input
+                    id="maxSize"
+                    type="number"
+                    min="0">
+
+                <label style="margin-top:15px;">
+
+                    <input
+                        type="checkbox"
+                        id="noOrder">
+
+                    Disable Booking
+
+                </label>
+
+
+                <div class="time-row">
+
+                    <div>
+
+                        <label>
+                            Booking Start Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="startTime">
+
+                    </div>
+
+                    <div>
+
+                        <label>
+                            Booking End Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="endTime">
+
+                    </div>
+
+                </div>
+
+
+                <label>
+                    Admin Notice
+                </label>
+
+                <input
+                    id="adminNotice"
+                    placeholder="Example: Booking closed today">
+
+            </div>
+
+
+            <button
+                class="save"
+                onclick="saveSettings()">
+
+                💾 Save Business Settings
+
+            </button>
+
+
+            <div class="card" style="margin-top:20px;">
+
+                <h3>
+                    Customer Summary
+                </h3>
+
+                <div class="stats">
+
+                    <div class="stat">
+                        Total Customers
+                        <b id="statCustomers">0</b>
+                    </div>
+
+                    <div class="stat">
+                        Total Orders
+                        <b id="statOrders">0</b>
+                    </div>
+
+                    <div class="stat">
+                        Total Sales
+                        <b id="statSales">₹0</b>
+                    </div>
+
+                    <div class="stat">
+                        Total Paid
+                        <b id="statJama">₹0</b>
+                    </div>
+
+                </div>
+
+                <div
+                    style="margin-top:10px;"
+                    class="stats">
+
+                    <div class="stat">
+                        Total Extra
+                        <b id="statExtra">₹0</b>
+                    </div>
+
+                    <div class="stat">
+                        Total Due
+                        <b id="statDue">₹0</b>
+                    </div>
+
+                    <div class="stat">
+                        Total Quantity
+                        <b id="statQuantity">0 KG</b>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Customer Records
+                </h3>
+
+                <div class="search-box">
+
+                    <input
+                        id="customerSearch"
+                        type="search"
+                        placeholder="Search customer by name or mobile..."
+                        oninput="renderCustomers()">
+
+                </div>
+
+                <div id="records">
+                    No Customers
+                </div>
+
+            </div>
+
+
+            <button
+                class="btn red"
+                style="width:100%;"
+                onclick="deleteAllCustomers()">
+
+                🗑 Delete All Customer Records
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   DEFAULT SETTINGS
+===================================================== */
+
+const DEFAULT_SETTINGS = {
+
+    rate:220,
+
+    minSize:1200,
+
+    maxSize:1500,
+
+    noOrder:false,
+
+    startTime:"00:00",
+
+    endTime:"23:59",
+
+    notice:"",
+
+    adminPhoto:"admin.jpg"
+
+};
+
+
+/* =====================================================
+   LOAD SETTINGS
+===================================================== */
+
+function loadSettings(){
+
+    try{
+
+        const saved =
+            JSON.parse(
+                localStorage.getItem(
+                    "poultrySettings"
+                )
+            );
+
+        if(saved && typeof saved === "object"){
+
+            return {
+                ...DEFAULT_SETTINGS,
+                ...saved
+            };
+
+        }
+
+    }catch(error){
+
+        console.log(
+            "Settings load error:",
+            error
+        );
+
+    }
+
+    return {
+        ...DEFAULT_SETTINGS
+    };
+
+}
+
+
+let settings = loadSettings();
+
+
+/* =====================================================
+   ADMIN LOGIN
+===================================================== */
+
+const ADMIN_EMAIL =
+    "ahmadazmi2723@gmail.com";
+
+const ADMIN_PASSWORD =
+    "123456";
+
+
+let adminLoggedIn =
+    localStorage.getItem(
+        "poultryAdminLogin"
+    ) === "true";
+
+
+/* =====================================================
+   CUSTOMER DATA
+=====================================================
+
+   IMPORTANT:
+
+   One customer = one record.
+
+   Customer identity is mainly based
+   on mobile number.
+
+   Example:
+
+   Customer A
+   8127272723
+
+   Order 1
+   Order 2
+   Order 3
+
+   All 3 orders remain inside
+   the SAME customer record.
+===================================================== */
+
+function loadCustomers(){
+
+    try{
+
+        const saved =
+            JSON.parse(
+                localStorage.getItem(
+                    "poultryCustomers"
+                )
+            );
+
+        if(Array.isArray(saved)){
+
+            return saved.map(
+                normalizeCustomer
+            );
+
+        }
+
+    }catch(error){
+
+        console.log(
+            "Customer load error:",
+            error
+        );
+
+    }
+
+    return [];
+
+}
+
+
+function normalizeCustomer(customer){
+
+    customer = customer || {};
+
+    let history =
+        Array.isArray(
+            customer.orders
+        )
+        ? customer.orders
+        : [];
+
+
+    history =
+        history.map(
+            normalizeOrder
+        );
+
+
+    return {
+
+        id:
+            String(
+                customer.id ||
+                Date.now() +
+                Math.random()
+            ),
+
+        customerName:
+            customer.customerName || "",
+
+        customerPhone:
+            customer.customerPhone || "",
+
+        address:
+            customer.address || "",
+
+        orders:
+            history,
+
+        createdAt:
+            customer.createdAt ||
+            Date.now(),
+
+        updatedAt:
+            customer.updatedAt ||
+            Date.now()
+
+    };
+
+}
+
+
+let customers = loadCustomers();
+
+
+/* =====================================================
+   OLD ORDER MIGRATION
+=====================================================
+
+   If old version had poultryOrders,
+   convert them into customer records.
+===================================================== */
+
+function migrateOldOrders(){
+
+    try{
+
+        const oldData =
+            JSON.parse(
+                localStorage.getItem(
+                    "poultryOrders"
+                )
+            );
+
+
+        if(
+            !Array.isArray(oldData) ||
+            oldData.length === 0
+        ){
+
+            return;
+
+        }
+
+
+        oldData.forEach(
+            function(oldOrder){
+
+                const order =
+                    normalizeOrder(
+                        oldOrder
+                    );
+
+
+                addOrderToCustomer(
+                    order,
+                    false
+                );
+
+            }
+        );
+
+
+        saveCustomers();
+
+
+        /*
+           Old orders are removed after
+           successful migration.
+        */
+
+        localStorage.removeItem(
+            "poultryOrders"
+        );
+
+    }catch(error){
+
+        console.log(
+            "Old order migration error:",
+            error
+        );
+
+    }
+
+}
+
+
+migrateOldOrders();
+
+
+/* =====================================================
+   SAVE CUSTOMERS
+===================================================== */
+
+function saveCustomers(){
+
+    localStorage.setItem(
+        "poultryCustomers",
+        JSON.stringify(customers)
+    );
+
+}
+
+
+/* =====================================================
+   NORMALIZE ORDER
+===================================================== */
+
+function normalizeOrder(order){
+
+    order = order || {};
+
+    const total =
+        Number(order.total) || 0;
+
+
+    const paid =
+        Number(
+            order.paidAmount ??
+            order.jama ??
+            0
+        ) || 0;
+
+
+    const extra =
+        Number(
+            order.extraAmount
+        );
+
+
+    const due =
+        Number(
+            order.remainingDue
+        );
+
+
+    return {
+
+        id:
+            String(
+                order.id ||
+                Date.now() +
+                Math.random()
+            ),
+
+        customerName:
+            order.customerName || "",
+
+        customerPhone:
+            order.customerPhone || "",
+
+        address:
+            order.address || "",
+
+        chickenSize:
+            order.chickenSize || "",
+
+        quantity:
+            Number(order.quantity) || 0,
+
+        rate:
+            Number(order.rate) || 0,
+
+        total:
+            total,
+
+        paymentMethod:
+            order.paymentMethod || "",
+
+        paidAmount:
+            paid,
+
+        extraAmount:
+            Number.isFinite(extra)
+                ? extra
+                : Math.max(
+                    0,
+                    paid - total
+                ),
+
+        remainingDue:
+            Number.isFinite(due)
+                ? due
+                : Math.max(
+                    0,
+                    total - paid
+                ),
+
+        notes:
+            order.notes || "",
+
+        orderDate:
+            order.orderDate ||
+            new Date().toLocaleString(
+                "en-IN"
+            ),
+
+        timestamp:
+            Number(order.timestamp) ||
+            Date.now()
+
+    };
+
+}
+
+
+/* =====================================================
+   FIND CUSTOMER BY MOBILE
+===================================================== */
+
+function normalizePhone(phone){
+
+    return String(
+        phone || ""
+    ).replace(
+        /\D/g,
+        ""
+    ).slice(-10);
+
+}
+
+
+function findCustomerByPhone(phone){
+
+    const normalized =
+        normalizePhone(phone);
+
+
+    return customers.find(
+        function(customer){
+
+            return normalizePhone(
+                customer.customerPhone
+            ) === normalized;
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ADD ORDER TO CUSTOMER
+===================================================== */
+
+function addOrderToCustomer(
+    order,
+    shouldSave = true
+){
+
+    const phone =
+        normalizePhone(
+            order.customerPhone
+        );
+
+
+    let customer =
+        findCustomerByPhone(
+            phone
+        );
+
+
+    /*
+       Existing customer:
+       Add order to same record.
+    */
+
+    if(customer){
+
+        customer.customerName =
+            order.customerName ||
+            customer.customerName;
+
+
+        customer.customerPhone =
+            order.customerPhone ||
+            customer.customerPhone;
+
+
+        customer.address =
+            order.address ||
+            customer.address;
+
+
+        if(!Array.isArray(customer.orders)){
+
+            customer.orders = [];
+
+        }
+
+
+        customer.orders.unshift(
+            order
+        );
+
+
+        customer.updatedAt =
+            Date.now();
+
+    }
+
+    /*
+       New customer:
+       Create customer record.
+    */
+
+    else{
+
+        customer = {
+
+            id:
+                Date.now().toString() +
+                Math.random()
+                    .toString(16)
+                    .slice(2),
+
+            customerName:
+                order.customerName,
+
+            customerPhone:
+                order.customerPhone,
+
+            address:
+                order.address,
+
+            orders:[
+                order
+            ],
+
+            createdAt:
+                Date.now(),
+
+            updatedAt:
+                Date.now()
+
+        };
+
+
+        customers.unshift(
+            customer
+        );
+
+    }
+
+
+    if(shouldSave){
+
+        saveCustomers();
+
+    }
+
+
+    return customer;
+
+}
+
+
+/* =====================================================
+   TIME FUNCTIONS
+===================================================== */
+
+function formatTime(time){
+
+    if(!time){
+
+        return "";
+
+    }
+
+
+    const parts =
+        time.split(":");
+
+
+    let hour =
+        Number(parts[0]);
+
+
+    const minute =
+        parts[1] || "00";
+
+
+    const suffix =
+        hour >= 12
+            ? "PM"
+            : "AM";
+
+
+    let displayHour =
+        hour % 12;
+
+
+    if(displayHour === 0){
+
+        displayHour = 12;
+
+    }
+
+
+    return (
+        displayHour +
+        ":" +
+        minute +
+        " " +
+        suffix
+    );
+
+}
+
+
+function timeToMinutes(time){
+
+    if(!time){
+
+        return 0;
+
+    }
+
+
+    const parts =
+        time.split(":");
+
+
+    return (
+        Number(parts[0]) * 60 +
+        Number(parts[1])
+    );
+
+}
+
+
+/* =====================================================
+   BOOKING TIME
+===================================================== */
+
+function isBookingTime(){
+
+    if(settings.noOrder){
+
+        return false;
+
+    }
+
+
+    if(
+        settings.startTime ===
+        settings.endTime
+    ){
+
+        return true;
+
+    }
+
+
+    const now =
+        new Date();
+
+
+    const current =
+        now.getHours() * 60 +
+        now.getMinutes();
+
+
+    const start =
+        timeToMinutes(
+            settings.startTime
+        );
+
+
+    const end =
+        timeToMinutes(
+            settings.endTime
+        );
+
+
+    if(start < end){
+
+        return (
+            current >= start &&
+            current < end
+        );
+
+    }
+
+
+    return (
+        current >= start ||
+        current < end
+    );
+
+}
+
+
+/* =====================================================
+   UPDATE BOOKING
+===================================================== */
+
+function updateOrderAvailability(){
+
+    const notice =
+        document.getElementById(
+            "orderNotice"
+        );
+
+
+    const button =
+        document.getElementById(
+            "orderButton"
+        );
+
+
+    const status =
+        document.getElementById(
+            "businessStatus"
+        );
+
+
+    if(settings.noOrder){
+
+        notice.className =
+            "notice closed";
+
+
+        notice.innerText =
+            settings.notice ||
+            "Booking is currently disabled.";
+
+
+        button.disabled =
+            true;
+
+
+        button.style.background =
+            "#888";
+
+
+        status.className =
+            "notice closed";
+
+
+        status.innerText =
+            settings.notice ||
+            "Booking is currently closed.";
+
+
+        return;
+
+    }
+
+
+    if(isBookingTime()){
+
+        notice.className =
+            "notice open";
+
+
+        notice.innerText =
+            "Booking is OPEN: " +
+            formatTime(
+                settings.startTime
+            ) +
+            " - " +
+            formatTime(
+                settings.endTime
+            );
+
+
+        button.disabled =
+            false;
+
+
+        button.style.background =
+            "#20c76a";
+
+
+        status.className =
+            "notice open";
+
+
+        status.innerText =
+            "Booking is currently OPEN.";
+
+    }
+    else{
+
+        notice.className =
+            "notice closed";
+
+
+        notice.innerText =
+            "Booking is CLOSED. Time: " +
+            formatTime(
+                settings.startTime
+            ) +
+            " - " +
+            formatTime(
+                settings.endTime
+            );
+
+
+        button.disabled =
+            true;
+
+
+        button.style.background =
+            "#888";
+
+
+        status.className =
+            "notice closed";
+
+
+        status.innerText =
+            "Booking is currently closed.";
+
+    }
+
+}
+
+
+/* =====================================================
+   RENDER SETTINGS
+===================================================== */
+
+function renderSettings(){
+
+    document.getElementById(
+        "currentRate"
+    ).innerText =
+        settings.rate;
+
+
+    document.getElementById(
+        "showRate"
+    ).innerText =
+        settings.rate;
+
+
+    const sizes =
+        document.getElementById(
+            "sizeDisplay"
+        );
+
+
+    sizes.innerHTML =
+        "";
+
+
+    const size =
+        document.createElement(
+            "div"
+        );
+
+
+    size.className =
+        "size";
+
+
+    size.innerText =
+        settings.minSize +
+        " - " +
+        settings.maxSize +
+        " Gram";
+
+
+    sizes.appendChild(
+        size
+    );
+
+
+    const select =
+        document.getElementById(
+            "size"
+        );
+
+
+    select.innerHTML =
+        "";
+
+
+    const option =
+        document.createElement(
+            "option"
+        );
+
+
+    option.value =
+        settings.minSize +
+        "-" +
+        settings.maxSize;
+
+
+    option.innerText =
+        settings.minSize +
+        " - " +
+        settings.maxSize +
+        " Gram";
+
+
+    select.appendChild(
+        option
+    );
+
+
+    document.getElementById(
+        "bookingTimeText"
+    ).innerText =
+        "Booking Time: " +
+        formatTime(
+            settings.startTime
+        ) +
+        " - " +
+        formatTime(
+            settings.endTime
+        );
+
+
+    updateOrderAvailability();
+
+}
+
+
+/* =====================================================
+   CALCULATE PAYMENT
+===================================================== */
+
+function calculate(){
+
+    const quantity =
+        Number(
+            document.getElementById(
+                "quantity"
+            ).value
+        ) || 0;
+
+
+    const paidAmount =
+        Number(
+            document.getElementById(
+                "jama"
+            ).value
+        ) || 0;
+
+
+    const rate =
+        Number(settings.rate) || 0;
+
+
+    const total =
+        Math.round(
+            quantity * rate
+        );
+
+
+    const extraAmount =
+        Math.max(
+            0,
+            paidAmount - total
+        );
+
+
+    const remainingDue =
+        Math.max(
+            0,
+            total - paidAmount
+        );
+
+
+    document.getElementById(
+        "showQuantity"
+    ).innerText =
+        quantity;
+
+
+    document.getElementById(
+        "total"
+    ).innerText =
+        total;
+
+
+    document.getElementById(
+        "showJama"
+    ).innerText =
+        paidAmount;
+
+
+    document.getElementById(
+        "showExtra"
+    ).innerText =
+        extraAmount;
+
+
+    document.getElementById(
+        "showRemainingDue"
+    ).innerText =
+        remainingDue;
+
+}
+
+
+document.getElementById(
+    "quantity"
+).addEventListener(
+    "input",
+    calculate
+);
+
+
+document.getElementById(
+    "jama"
+).addEventListener(
+    "input",
+    calculate
+);
+
+
+/* =====================================================
+   GO ORDER
+===================================================== */
+
+function goOrder(){
+
+    document.getElementById(
+        "order"
+    ).scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   ADMIN OPEN
+===================================================== */
+
+function openAdmin(){
+
+    document.getElementById(
+        "adminOverlay"
+    ).style.display =
+        "block";
+
+
+    if(adminLoggedIn){
+
+        showDashboard();
+
+    }
+    else{
+
+        document.getElementById(
+            "loginBox"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "dashboard"
+        ).style.display =
+            "none";
+
+    }
+
+}
+
+
+/* =====================================================
+   ADMIN CLOSE
+===================================================== */
+
+function closeAdmin(){
+
+    document.getElementById(
+        "adminOverlay"
+    ).style.display =
+        "none";
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function loginAdmin(){
+
+    const email =
+        document.getElementById(
+            "adminEmail"
+        ).value.trim();
+
+
+    const password =
+        document.getElementById(
+            "adminPassword"
+        ).value;
+
+
+    const message =
+        document.getElementById(
+            "loginMessage"
+        );
+
+
+    if(
+        email === ADMIN_EMAIL &&
+        password === ADMIN_PASSWORD
+    ){
+
+        localStorage.setItem(
+            "poultryAdminLogin",
+            "true"
+        );
+
+
+        adminLoggedIn =
+            true;
+
+
+        message.style.color =
+            "#08752f";
+
+
+        message.innerText =
+            "Login successful.";
+
+
+        showDashboard();
+
+    }
+    else{
+
+        message.style.color =
+            "#d32f2f";
+
+
+        message.innerText =
+            "Wrong email or password.";
+
+    }
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+function showDashboard(){
+
+    document.getElementById(
+        "loginBox"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "dashboard"
+    ).style.display =
+        "block";
+
+
+    loadAdminPanel();
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logoutAdmin(){
+
+    localStorage.removeItem(
+        "poultryAdminLogin"
+    );
+
+
+    adminLoggedIn =
+        false;
+
+
+    document.getElementById(
+        "dashboard"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "loginBox"
+    ).style.display =
+        "block";
+
+}
+
+
+/* =====================================================
+   LOAD ADMIN PANEL
+===================================================== */
+
+function loadAdminPanel(){
+
+    document.getElementById(
+        "adminRate"
+    ).value =
+        settings.rate;
+
+
+    document.getElementById(
+        "minSize"
+    ).value =
+        settings.minSize;
+
+
+    document.getElementById(
+        "maxSize"
+    ).value =
+        settings.maxSize;
+
+
+    document.getElementById(
+        "noOrder"
+    ).checked =
+        settings.noOrder;
+
+
+    document.getElementById(
+        "startTime"
+    ).value =
+        settings.startTime;
+
+
+    document.getElementById(
+        "endTime"
+    ).value =
+        settings.endTime;
+
+
+    document.getElementById(
+        "adminNotice"
+    ).value =
+        settings.notice;
+
+
+    document.getElementById(
+        "adminPhoto"
+    ).src =
+        settings.adminPhoto ||
+        "admin.jpg";
+
+
+    renderCustomers();
+
+}
+
+
+/* =====================================================
+   SAVE SETTINGS
+===================================================== */
+
+function saveSettings(){
+
+    const rate =
+        Number(
+            document.getElementById(
+                "adminRate"
+            ).value
+        );
+
+
+    const minSize =
+        Number(
+            document.getElementById(
+                "minSize"
+            ).value
+        );
+
+
+    const maxSize =
+        Number(
+            document.getElementById(
+                "maxSize"
+            ).value
+        );
+
+
+    const noOrder =
+        document.getElementById(
+            "noOrder"
+        ).checked;
+
+
+    const startTime =
+        document.getElementById(
+            "startTime"
+        ).value;
+
+
+    const endTime =
+        document.getElementById(
+            "endTime"
+        ).value;
+
+
+    const notice =
+        document.getElementById(
+            "adminNotice"
+        ).value.trim();
+
+
+    if(
+        !Number.isFinite(rate) ||
+        rate < 0
+    ){
+
+        alert(
+            "Enter valid rate."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !Number.isFinite(minSize) ||
+        !Number.isFinite(maxSize) ||
+        minSize < 0 ||
+        maxSize < 0 ||
+        minSize > maxSize
+    ){
+
+        alert(
+            "Enter valid chicken size."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !startTime ||
+        !endTime
+    ){
+
+        alert(
+            "Please select booking time."
+        );
+
+        return;
+
+    }
+
+
+    settings = {
+
+        ...settings,
+
+        rate,
+        minSize,
+        maxSize,
+        noOrder,
+        startTime,
+        endTime,
+        notice
+
+    };
+
+
+    localStorage.setItem(
+        "poultrySettings",
+        JSON.stringify(settings)
+    );
+
+
+    renderSettings();
+
+
+    calculate();
+
+
+    alert(
+        "Business settings saved successfully."
+    );
+
+}
+
+
+/* =====================================================
+   ADMIN PHOTO
+===================================================== */
+
+document.getElementById(
+    "photoFile"
+).addEventListener(
+    "change",
+    function(){
+
+        const file =
+            this.files[0];
+
+
+        if(!file){
+
+            return;
+
+        }
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function(e){
+
+                settings.adminPhoto =
+                    e.target.result;
+
+
+                document.getElementById(
+                    "adminPhoto"
+                ).src =
+                    e.target.result;
+
+
+                localStorage.setItem(
+                    "poultrySettings",
+                    JSON.stringify(settings)
+                );
+
+            };
+
+
+        reader.readAsDataURL(
+            file
+        );
+
+    }
+);
+
+
+/* =====================================================
+   WHATSAPP MESSAGE
+=====================================================
+
+   IMPORTANT:
+
+   "NEW CHICKEN ORDER" REMOVED.
+===================================================== */
+
+function createOrderMessage(order){
+
+return `*PAIGAM POULTRY TRADERS*
+
+*ORDER DETAILS*
+
+Customer Name:
+${order.customerName}
+
+Mobile:
+${order.customerPhone}
+
+Address:
+${order.address}
+
+Chicken Size:
+${order.chickenSize}
+
+Quantity:
+${order.quantity} KG
+
+Rate:
+₹${order.rate}/KG
+
+*PAYMENT DETAILS*
+
+Total Amount:
+₹${order.total}
+
+Payment Method:
+${order.paymentMethod}
+
+Paid Amount:
+₹${order.paidAmount}
+
+Extra Amount:
+₹${order.extraAmount}
+
+Remaining Due:
+₹${order.remainingDue}
+
+Note:
+${order.notes || "None"}
+
+Order Date:
+${order.orderDate}
+
+*ADMIN DETAILS*
+
+Ahmad Azmi
++91 81272 72723
+ahmadazmi2723@gmail.com
+
+Bisham Mirzapur, Azamgarh - 276205`;
+
+}
+
+
+/* =====================================================
+   EMAIL
+===================================================== */
+
+function createEmailBody(order){
+
+return `PAIGAM POULTRY TRADERS
+
+ORDER DETAILS
+
+Customer Name:
+${order.customerName}
+
+Mobile:
+${order.customerPhone}
+
+Address:
+${order.address}
+
+Chicken Size:
+${order.chickenSize}
+
+Quantity:
+${order.quantity} KG
+
+Rate:
+₹${order.rate}/KG
+
+PAYMENT DETAILS
+
+Total Amount:
+₹${order.total}
+
+Payment Method:
+${order.paymentMethod}
+
+Paid Amount:
+₹${order.paidAmount}
+
+Extra Amount:
+₹${order.extraAmount}
+
+Remaining Due:
+₹${order.remainingDue}
+
+Note:
+${order.notes || "None"}
+
+Order Date:
+${order.orderDate}
+
+ADMIN:
+
+Ahmad Azmi
++91 81272 72723
+ahmadazmi2723@gmail.com
+
+Bisham Mirzapur, Azamgarh - 276205`;
+
+}
+
+
+/* =====================================================
+   SUBMIT ORDER
+===================================================== */
+
+document.getElementById(
+    "orderForm"
+).addEventListener(
+    "submit",
+    function(e){
+
+        e.preventDefault();
+
+
+        const button =
+            document.getElementById(
+                "orderButton"
+            );
+
+
+        if(button.disabled){
+
+            return;
+
+        }
+
+
+        if(!isBookingTime()){
+
+            alert(
+                "Booking is currently closed."
+            );
+
+
+            updateOrderAvailability();
+
+
+            return;
+
+        }
+
+
+        const name =
+            document.getElementById(
+                "customerName"
+            ).value.trim();
+
+
+        const phone =
+            document.getElementById(
+                "customerPhone"
+            ).value.trim();
+
+
+        const address =
+            document.getElementById(
+                "address"
+            ).value.trim();
+
+
+        const size =
+            document.getElementById(
+                "size"
+            ).value;
+
+
+        const quantity =
+            Number(
+                document.getElementById(
+                    "quantity"
+                ).value
+            );
+
+
+        const payment =
+            document.getElementById(
+                "payment"
+            ).value;
+
+
+        const paidAmount =
+            Number(
+                document.getElementById(
+                    "jama"
+                ).value
+            ) || 0;
+
+
+        const notes =
+            document.getElementById(
+                "notes"
+            ).value.trim();
+
+
+        if(!name){
+
+            alert(
+                "Please enter customer name."
+            );
+
+            return;
+
+        }
+
+
+        if(
+            !/^[6-9][0-9]{9}$/.test(
+                phone
+            )
+        ){
+
+            alert(
+                "Enter valid 10 digit Indian mobile number."
+            );
+
+            return;
+
+        }
+
+
+        if(!address){
+
+            alert(
+                "Please enter delivery address."
+            );
+
+            return;
+
+        }
+
+
+        if(
+            !Number.isFinite(quantity) ||
+            quantity <= 0
+        ){
+
+            alert(
+                "Quantity must be greater than zero."
+            );
+
+            return;
+
+        }
+
+
+        if(!payment){
+
+            alert(
+                "Please select payment method."
+            );
+
+            return;
+
+        }
+
+
+        if(paidAmount < 0){
+
+            alert(
+                "Paid amount cannot be negative."
+            );
+
+            return;
+
+        }
+
+
+        const rate =
+            Number(settings.rate) || 0;
+
+
+        const total =
+            Math.round(
+                quantity * rate
+            );
+
+
+        const extraAmount =
+            Math.max(
+                0,
+                paidAmount - total
+            );
+
+
+        const remainingDue =
+            Math.max(
+                0,
+                total - paidAmount
+            );
+
+
+        const order = {
+
+            id:
+                Date.now().toString() +
+                Math.random()
+                    .toString(16)
+                    .slice(2),
+
+            customerName:
+                name,
+
+            customerPhone:
+                phone,
+
+            address:
+                address,
+
+            chickenSize:
+                size,
+
+            quantity:
+                quantity,
+
+            rate:
+                rate,
+
+            total:
+                total,
+
+            paymentMethod:
+                payment,
+
+            paidAmount:
+                paidAmount,
+
+            extraAmount:
+                extraAmount,
+
+            remainingDue:
+                remainingDue,
+
+            notes:
+                notes,
+
+            orderDate:
+                new Date()
+                    .toLocaleString(
+                        "en-IN"
+                    ),
+
+            timestamp:
+                Date.now()
+
+        };
+
+
+        /*
+           THIS IS THE MAIN CHANGE.
+
+           Existing customer:
+           order goes into same customer.
+
+           New customer:
+           new customer is created.
+        */
+
+        const customer =
+            addOrderToCustomer(
+                order,
+                true
+            );
+
+
+        /*
+           Success message.
+        */
+
+        const success =
+            document.getElementById(
+                "successBox"
+            );
+
+
+        success.style.display =
+            "block";
+
+
+        success.innerHTML =
+            "✅ Order Saved Successfully<br>" +
+            "Customer: " +
+            name +
+            "<br>" +
+            "Total: ₹" +
+            total +
+            " | Paid: ₹" +
+            paidAmount +
+            " | Extra: ₹" +
+            extraAmount +
+            " | Due: ₹" +
+            remainingDue;
+
+
+        /*
+           WhatsApp message.
+        */
+
+        const whatsappMessage =
+            createOrderMessage(
+                order
+            );
+
+
+        const whatsappURL =
+            "https://wa.me/918127272723?text=" +
+            encodeURIComponent(
+                whatsappMessage
+            );
+
+
+        /*
+           Email.
+        */
+
+        const emailSubject =
+            "Paigam Poultry Traders - Order Details";
+
+
+        const emailBody =
+            createEmailBody(
+                order
+            );
+
+
+        const emailURL =
+            "mailto:ahmadazmi2723@gmail.com" +
+            "?subject=" +
+            encodeURIComponent(
+                emailSubject
+            ) +
+            "&body=" +
+            encodeURIComponent(
+                emailBody
+            );
+
+
+        /*
+           WhatsApp open.
+        */
+
+        try{
+
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
+
+        }catch(error){
+
+            console.log(
+                "WhatsApp open error:",
+                error
+            );
+
+        }
+
+
+        /*
+           Reset form.
+        */
+
+        this.reset();
+
+
+        document.getElementById(
+            "jama"
+        ).value =
+            "0";
+
+
+        calculate();
+
+
+        /*
+           Ask for email.
+        */
+
+        setTimeout(
+            function(){
+
+                const openEmail =
+                    confirm(
+                        "Order save ho gaya.\n\n" +
+                        "Customer: " +
+                        name +
+                        "\n" +
+                        "Paid Amount: ₹" +
+                        paidAmount +
+                        "\n" +
+                        "Extra Amount: ₹" +
+                        extraAmount +
+                        "\n" +
+                        "Remaining Due: ₹" +
+                        remainingDue +
+                        "\n\n" +
+                        "Email bhi open karna hai?"
+                    );
+
+
+                if(openEmail){
+
+                    window.location.href =
+                        emailURL;
+
+                }
+
+            },
+            500
+        );
+
+    }
+);
+
+
+/* =====================================================
+   CUSTOMER TOTALS
+===================================================== */
+
+function getCustomerTotals(customer){
+
+    let sales = 0;
+    let paid = 0;
+    let extra = 0;
+    let due = 0;
+    let quantity = 0;
+
+
+    const history =
+        Array.isArray(customer.orders)
+            ? customer.orders
+            : [];
+
+
+    history.forEach(
+        function(order){
+
+            sales +=
+                Number(order.total) || 0;
+
+
+            paid +=
+                Number(order.paidAmount) || 0;
+
+
+            extra +=
+                Number(order.extraAmount) || 0;
+
+
+            due +=
+                Number(order.remainingDue) || 0;
+
+
+            quantity +=
+                Number(order.quantity) || 0;
+
+        }
+    );
+
+
+    return {
+
+        sales,
+        paid,
+        extra,
+        due,
+        quantity,
+        orders:
+            history.length
+
+    };
+
+}
+
+
+/* =====================================================
+   RENDER CUSTOMERS
+===================================================== */
+
+function renderCustomers(){
+
+    const container =
+        document.getElementById(
+            "records"
+        );
+
+
+    const searchInput =
+        document.getElementById(
+            "customerSearch"
+        );
+
+
+    const search =
+        searchInput
+            ? searchInput.value
+                .trim()
+                .toLowerCase()
+            : "";
+
+
+    let filtered =
+        customers;
+
+
+    if(search){
+
+        filtered =
+            customers.filter(
+                function(customer){
+
+                    return (
+                        String(
+                            customer.customerName
+                        )
+                        .toLowerCase()
+                        .includes(search)
+
+                        ||
+
+                        normalizePhone(
+                            customer.customerPhone
+                        )
+                        .includes(
+                            normalizePhone(
+                                search
+                            )
+                        )
+                    );
+
+                }
+            );
+
+    }
+
+
+    if(!filtered.length){
+
+        container.innerHTML =
+            "<p>No customer records found.</p>";
+
+
+        updateStats();
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        "";
+
+
+    filtered.forEach(
+        function(customer){
+
+            const totals =
+                getCustomerTotals(
+                    customer
+                );
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "customer-card";
+
+
+            let historyHTML =
+                "";
+
+
+            const history =
+                Array.isArray(
+                    customer.orders
+                )
+                ? customer.orders
+                : [];
+
+
+            history.forEach(
+                function(order,index){
+
+                    historyHTML += `
+
+                        <div class="history-item">
+
+                            <div style="
+                                color:#8b1e16;
+                                font-weight:bold;
+                                margin-bottom:8px;
+                            ">
+                                Order ${history.length - index}
+                            </div>
+
+                            <b>📅 Date:</b>
+                            ${safe(order.orderDate)}
+                            <br>
+
+                            <b>🐔 Size:</b>
+                            ${safe(order.chickenSize)}
+                            <br>
+
+                            <b>⚖ Quantity:</b>
+                            ${safe(order.quantity)} KG
+                            <br>
+
+                            <b>💰 Rate:</b>
+                            ₹${safe(order.rate)}/KG
+
+                            <div class="money-box">
+
+                                <div>
+                                    <b>Total:</b>
+                                    ₹${safe(order.total)}
+                                </div>
+
+                                <div class="paid">
+                                    <b>Paid:</b>
+                                    ₹${safe(order.paidAmount)}
+                                </div>
+
+                                <div class="extra">
+                                    <b>Extra:</b>
+                                    ₹${safe(order.extraAmount)}
+                                </div>
+
+                                <div class="due">
+                                    <b>Due:</b>
+                                    ₹${safe(order.remainingDue)}
+                                </div>
+
+                            </div>
+
+                            <div style="margin-top:8px;">
+                                <b>💳 Payment:</b>
+                                ${safe(order.paymentMethod)}
+                            </div>
+
+                            <div style="margin-top:5px;">
+                                <b>📝 Note:</b>
+                                ${safe(order.notes || "None")}
+                            </div>
+
+                            <div class="record-buttons">
+
+                                <button
+                                    style="background:#20c76a;color:white;"
+                                    onclick="sendOrderWhatsApp('${safeAttribute(order.id)}','${safeAttribute(customer.id)}')">
+                                    WhatsApp
+                                </button>
+
+                                <button
+                                    style="background:#ffca28;color:#5d170f;"
+                                    onclick="sendOrderEmail('${safeAttribute(order.id)}','${safeAttribute(customer.id)}')">
+                                    Email
+                                </button>
+
+                                <button
+                                    style="background:#d32f2f;color:white;"
+                                    onclick="deleteOneOrder('${safeAttribute(order.id)}','${safeAttribute(customer.id)}')">
+                                    Delete Order
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+
+            div.innerHTML = `
+
+                <div class="customer-title">
+                    👤 ${safe(customer.customerName)}
+                </div>
+
+                <div>
+                    📞 <b>Mobile:</b>
+                    ${safe(customer.customerPhone)}
+                </div>
+
+                <div>
+                    📍 <b>Address:</b>
+                    ${safe(customer.address)}
+                </div>
+
+                <div class="customer-summary">
+
+                    <div>
+                        <b>Orders:</b>
+                        ${totals.orders}
+                    </div>
+
+                    <div>
+                        <b>Total Quantity:</b>
+                        ${totals.quantity.toFixed(2)} KG
+                    </div>
+
+                    <div>
+                        <b>Total Sales:</b>
+                        ₹${Math.round(totals.sales)}
+                    </div>
+
+                    <div class="paid">
+                        <b>Total Paid:</b>
+                        ₹${Math.round(totals.paid)}
+                    </div>
+
+                    <div class="extra">
+                        <b>Total Extra:</b>
+                        ₹${Math.round(totals.extra)}
+                    </div>
+
+                    <div class="due">
+                        <b>Total Due:</b>
+                        ₹${Math.round(totals.due)}
+                    </div>
+
+                </div>
+
+                <div class="order-history">
+
+                    <div class="history-title">
+                        📋 Customer Order History
+                    </div>
+
+                    ${historyHTML}
+
+                </div>
+
+                <div class="record-buttons">
+
+                    <button
+                        style="background:#d32f2f;color:white;"
+                        onclick="deleteCustomer('${safeAttribute(customer.id)}')">
+
+                        🗑 Delete Customer
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            container.appendChild(
+                div
+            );
+
+        }
+    );
+
+
+    updateStats();
+
+}
+
+
+/* =====================================================
+   GLOBAL STATS
+===================================================== */
+
+function updateStats(){
+
+    let totalOrders = 0;
+    let totalSales = 0;
+    let totalPaid = 0;
+    let totalExtra = 0;
+    let totalDue = 0;
+    let totalQuantity = 0;
+
+
+    customers.forEach(
+        function(customer){
+
+            const totals =
+                getCustomerTotals(
+                    customer
+                );
+
+
+            totalOrders +=
+                totals.orders;
+
+
+            totalSales +=
+                totals.sales;
+
+
+            totalPaid +=
+                totals.paid;
+
+
+            totalExtra +=
+                totals.extra;
+
+
+            totalDue +=
+                totals.due;
+
+
+            totalQuantity +=
+                totals.quantity;
+
+        }
+    );
+
+
+    document.getElementById(
+        "statCustomers"
+    ).innerText =
+        customers.length;
+
+
+    document.getElementById(
+        "statOrders"
+    ).innerText =
+        totalOrders;
+
+
+    document.getElementById(
+        "statSales"
+    ).innerText =
+        "₹" +
+        Math.round(totalSales);
+
+
+    document.getElementById(
+        "statJama"
+    ).innerText =
+        "₹" +
+        Math.round(totalPaid);
+
+
+    document.getElementById(
+        "statExtra"
+    ).innerText =
+        "₹" +
+        Math.round(totalExtra);
+
+
+    document.getElementById(
+        "statDue"
+    ).innerText =
+        "₹" +
+        Math.round(totalDue);
+
+
+    document.getElementById(
+        "statQuantity"
+    ).innerText =
+        totalQuantity.toFixed(2) +
+        " KG";
+
+}
+
+
+/* =====================================================
+   FIND CUSTOMER
+===================================================== */
+
+function findCustomer(id){
+
+    return customers.find(
+        function(customer){
+
+            return String(
+                customer.id
+            ) === String(id);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   FIND ORDER IN CUSTOMER
+===================================================== */
+
+function findCustomerOrder(
+    customerId,
+    orderId
+){
+
+    const customer =
+        findCustomer(
+            customerId
+        );
+
+
+    if(!customer){
+
+        return null;
+
+    }
+
+
+    return (
+        customer.orders || []
+    ).find(
+        function(order){
+
+            return String(
+                order.id
+            ) === String(orderId);
+
+        }
+    );
+
+}
